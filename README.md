@@ -173,8 +173,7 @@ hobbies:
 
 <div align="center">
 
-<img src="https://streak-stats.demolab.com?user=Saikiran5604&theme=github-dark-blue&hide_border=true&ring=1f6feb&fire=3fb950&currStreakLabel=58a6ff&background=0d1117" width="49%"/>
-<img src="https://github-readme-stats.vercel.app/api?username=Saikiran5604&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&icon_color=3fb950&title_color=58a6ff&text_color=c9d1d9&rank_icon=github" width="49%"/>
+<img src="https://streak-stats.demolab.com?user=Saikiran5604&theme=github-dark-blue&hide_border=true&ring=1f6feb&fire=3fb950&currStreakLabel=58a6ff&background=0d1117" width="60%"/>
 </div>
 
 <br>
