@@ -1,0 +1,234 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 280" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="840" y2="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="line1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#1f6feb"/>
+    </linearGradient>
+    <linearGradient id="line2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3fb950"/>
+      <stop offset="100%" stop-color="#238636"/>
+    </linearGradient>
+    <linearGradient id="bar1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1f6feb"/>
+      <stop offset="100%" stop-color="#58a6ff"/>
+    </linearGradient>
+    <linearGradient id="bar2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#238636"/>
+      <stop offset="100%" stop-color="#3fb950"/>
+    </linearGradient>
+    <linearGradient id="bar3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#9e6a03"/>
+      <stop offset="100%" stop-color="#d29922"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="840" height="280" rx="12" fill="url(#bg)"/>
+  <rect width="840" height="280" rx="12" stroke="#30363d" stroke-width="1" fill="none"/>
+
+  <!-- Title Bar -->
+  <rect x="0" y="0" width="840" height="36" rx="12" fill="#161b22"/>
+  <rect x="0" y="12" width="840" height="24" fill="#161b22"/>
+  <line x1="0" y1="36" x2="840" y2="36" stroke="#30363d" stroke-width="1"/>
+  <circle cx="20" cy="18" r="5" fill="#f85149"/>
+  <circle cx="38" cy="18" r="5" fill="#d29922"/>
+  <circle cx="56" cy="18" r="5" fill="#3fb950"/>
+  <text x="420" y="22" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="12">saikiran@devops ~ dashboard</text>
+
+  <!-- Panel 1: Cluster Status -->
+  <rect x="16" y="48" width="200" height="100" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <text x="28" y="68" fill="#8b949e" font-family="monospace" font-size="10">CLUSTER STATUS</text>
+
+  <!-- Status rows with pulsing dots -->
+  <circle cx="32" cy="84" r="4" fill="#3fb950" filter="url(#glow)">
+    <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="44" y="88" fill="#c9d1d9" font-family="monospace" font-size="11">prod-eks-01</text>
+  <text x="170" y="88" fill="#3fb950" font-family="monospace" font-size="10">LIVE</text>
+
+  <circle cx="32" cy="104" r="4" fill="#3fb950" filter="url(#glow)">
+    <animate attributeName="opacity" values="1;0.4;1" dur="2.3s" repeatCount="indefinite"/>
+  </circle>
+  <text x="44" y="108" fill="#c9d1d9" font-family="monospace" font-size="11">prod-eks-02</text>
+  <text x="170" y="108" fill="#3fb950" font-family="monospace" font-size="10">LIVE</text>
+
+  <circle cx="32" cy="124" r="4" fill="#3fb950" filter="url(#glow)">
+    <animate attributeName="opacity" values="1;0.4;1" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  <text x="44" y="128" fill="#c9d1d9" font-family="monospace" font-size="11">staging-01</text>
+  <text x="170" y="128" fill="#3fb950" font-family="monospace" font-size="10">LIVE</text>
+
+  <circle cx="32" cy="144" r="4" fill="#d29922">
+    <animate attributeName="opacity" values="1;0.5;1" dur="1s" repeatCount="indefinite"/>
+  </circle>
+  <text x="44" y="148" fill="#c9d1d9" font-family="monospace" font-size="11">dev-local</text>
+  <text x="158" y="148" fill="#d29922" font-family="monospace" font-size="10">SCALE</text>
+
+  <!-- Panel 2: Live Metrics Graph -->
+  <rect x="228" y="48" width="280" height="100" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <text x="240" y="68" fill="#8b949e" font-family="monospace" font-size="10">REQUEST LATENCY (ms)</text>
+
+  <!-- Animated line graph -->
+  <polyline points="240,130 260,120 280,125 300,110 320,115 340,100 360,108 380,95 400,105 420,98 440,90 460,102 480,92 495,96"
+            stroke="url(#line1)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+    <animate attributeName="points"
+             values="240,130 260,120 280,125 300,110 320,115 340,100 360,108 380,95 400,105 420,98 440,90 460,102 480,92 495,96;
+                     240,125 260,128 280,115 300,120 320,105 340,112 360,98 380,108 400,95 420,105 440,100 460,92 480,98 495,90;
+                     240,130 260,120 280,125 300,110 320,115 340,100 360,108 380,95 400,105 420,98 440,90 460,102 480,92 495,96"
+             dur="4s" repeatCount="indefinite"/>
+  </polyline>
+
+  <!-- Second line (throughput) -->
+  <polyline points="240,135 260,132 280,138 300,128 320,135 340,125 360,130 380,120 400,128 420,118 440,125 460,115 480,122 495,118"
+            stroke="url(#line2)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7">
+    <animate attributeName="points"
+             values="240,135 260,132 280,138 300,128 320,135 340,125 360,130 380,120 400,128 420,118 440,125 460,115 480,122 495,118;
+                     240,138 260,135 280,130 300,135 320,128 340,132 360,122 380,128 400,118 420,125 440,115 460,122 480,112 495,120;
+                     240,135 260,132 280,138 300,128 320,135 340,125 360,130 380,120 400,128 420,118 440,125 460,115 480,122 495,118"
+             dur="5s" repeatCount="indefinite"/>
+  </polyline>
+
+  <!-- Graph labels -->
+  <text x="240" y="145" fill="#58a6ff" font-family="monospace" font-size="9">● p99</text>
+  <text x="280" y="145" fill="#3fb950" font-family="monospace" font-size="9">● p50</text>
+  <text x="440" y="80" fill="#58a6ff" font-family="monospace" font-size="18" font-weight="bold">42ms
+    <animate attributeName="fill-opacity" values="1;0.6;1" dur="3s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- Panel 3: Pipeline -->
+  <rect x="520" y="48" width="304" height="100" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <text x="532" y="68" fill="#8b949e" font-family="monospace" font-size="10">CI/CD PIPELINE</text>
+
+  <!-- Pipeline stages -->
+  <rect x="532" y="78" width="56" height="22" rx="4" fill="#238636"/>
+  <text x="560" y="93" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="9">BUILD</text>
+
+  <text x="594" y="93" fill="#30363d" font-family="monospace" font-size="14">→</text>
+
+  <rect x="608" y="78" width="52" height="22" rx="4" fill="#238636"/>
+  <text x="634" y="93" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="9">SCAN</text>
+
+  <text x="666" y="93" fill="#30363d" font-family="monospace" font-size="14">→</text>
+
+  <rect x="680" y="78" width="52" height="22" rx="4" fill="#238636"/>
+  <text x="706" y="93" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="9">TEST</text>
+
+  <text x="738" y="93" fill="#30363d" font-family="monospace" font-size="14">→</text>
+
+  <rect x="752" y="78" width="60" height="22" rx="4" fill="#1f6feb">
+    <animate attributeName="fill" values="#1f6feb;#58a6ff;#1f6feb" dur="1.5s" repeatCount="indefinite"/>
+  </rect>
+  <text x="782" y="93" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="9">DEPLOY</text>
+
+  <!-- Deploy progress bar -->
+  <rect x="532" y="112" width="280" height="6" rx="3" fill="#21262d"/>
+  <rect x="532" y="112" width="0" height="6" rx="3" fill="url(#bar1)">
+    <animate attributeName="width" values="0;280;280;0" dur="6s" repeatCount="indefinite"/>
+  </rect>
+
+  <text x="532" y="138" fill="#3fb950" font-family="monospace" font-size="10">✓ 847 deployments</text>
+  <text x="700" y="138" fill="#8b949e" font-family="monospace" font-size="10">99.9% SLA</text>
+
+  <!-- Panel 4: Resource Usage -->
+  <rect x="16" y="160" width="200" height="108" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <text x="28" y="180" fill="#8b949e" font-family="monospace" font-size="10">RESOURCE USAGE</text>
+
+  <!-- CPU Bar -->
+  <text x="28" y="200" fill="#c9d1d9" font-family="monospace" font-size="10">CPU</text>
+  <rect x="60" y="192" width="140" height="10" rx="3" fill="#21262d"/>
+  <rect x="60" y="192" width="95" height="10" rx="3" fill="url(#bar1)">
+    <animate attributeName="width" values="95;105;90;95" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  <text x="165" y="200" fill="#58a6ff" font-family="monospace" font-size="9">68%</text>
+
+  <!-- Memory Bar -->
+  <text x="28" y="220" fill="#c9d1d9" font-family="monospace" font-size="10">MEM</text>
+  <rect x="60" y="212" width="140" height="10" rx="3" fill="#21262d"/>
+  <rect x="60" y="212" width="75" height="10" rx="3" fill="url(#bar2)">
+    <animate attributeName="width" values="75;80;70;75" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <text x="165" y="220" fill="#3fb950" font-family="monospace" font-size="9">54%</text>
+
+  <!-- Pods Bar -->
+  <text x="28" y="240" fill="#c9d1d9" font-family="monospace" font-size="10">PODS</text>
+  <rect x="60" y="232" width="140" height="10" rx="3" fill="#21262d"/>
+  <rect x="60" y="232" width="112" height="10" rx="3" fill="url(#bar3)">
+    <animate attributeName="width" values="112;120;108;112" dur="3.5s" repeatCount="indefinite"/>
+  </rect>
+  <text x="165" y="240" fill="#d29922" font-family="monospace" font-size="9">80%</text>
+
+  <!-- Uptime -->
+  <text x="28" y="260" fill="#3fb950" font-family="monospace" font-size="11" font-weight="bold">▲ 99.97% uptime</text>
+
+  <!-- Panel 5: Tech Stack -->
+  <rect x="228" y="160" width="280" height="108" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <text x="240" y="180" fill="#8b949e" font-family="monospace" font-size="10">ACTIVE STACK</text>
+
+  <!-- Tech items as styled pills -->
+  <rect x="240" y="188" width="72" height="20" rx="10" fill="#1f3d5e" stroke="#1f6feb" stroke-width="1"/>
+  <text x="276" y="202" text-anchor="middle" fill="#58a6ff" font-family="monospace" font-size="9">Kubernetes</text>
+
+  <rect x="318" y="188" width="58" height="20" rx="10" fill="#1a3a2a" stroke="#238636" stroke-width="1"/>
+  <text x="347" y="202" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="9">Terraform</text>
+
+  <rect x="382" y="188" width="52" height="20" rx="10" fill="#3d2e0a" stroke="#9e6a03" stroke-width="1"/>
+  <text x="408" y="202" text-anchor="middle" fill="#d29922" font-family="monospace" font-size="9">Jenkins</text>
+
+  <rect x="440" y="188" width="56" height="20" rx="10" fill="#1f3d5e" stroke="#1f6feb" stroke-width="1"/>
+  <text x="468" y="202" text-anchor="middle" fill="#58a6ff" font-family="monospace" font-size="9">Argo CD</text>
+
+  <rect x="240" y="214" width="42" height="20" rx="10" fill="#1a3a2a" stroke="#238636" stroke-width="1"/>
+  <text x="261" y="228" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="9">AWS</text>
+
+  <rect x="288" y="214" width="52" height="20" rx="10" fill="#3d2e0a" stroke="#9e6a03" stroke-width="1"/>
+  <text x="314" y="228" text-anchor="middle" fill="#d29922" font-family="monospace" font-size="9">Docker</text>
+
+  <rect x="346" y="214" width="58" height="20" rx="10" fill="#1f3d5e" stroke="#1f6feb" stroke-width="1"/>
+  <text x="375" y="228" text-anchor="middle" fill="#58a6ff" font-family="monospace" font-size="9">Grafana</text>
+
+  <rect x="410" y="214" width="76" height="20" rx="10" fill="#1a3a2a" stroke="#238636" stroke-width="1"/>
+  <text x="448" y="228" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="9">Prometheus</text>
+
+  <rect x="240" y="240" width="46" height="20" rx="10" fill="#3d2e0a" stroke="#9e6a03" stroke-width="1"/>
+  <text x="263" y="254" text-anchor="middle" fill="#d29922" font-family="monospace" font-size="9">Istio</text>
+
+  <rect x="292" y="240" width="42" height="20" rx="10" fill="#1f3d5e" stroke="#1f6feb" stroke-width="1"/>
+  <text x="313" y="254" text-anchor="middle" fill="#58a6ff" font-family="monospace" font-size="9">Helm</text>
+
+  <rect x="340" y="240" width="46" height="20" rx="10" fill="#1a3a2a" stroke="#238636" stroke-width="1"/>
+  <text x="363" y="254" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="9">Linux</text>
+
+  <rect x="392" y="240" width="54" height="20" rx="10" fill="#3d2e0a" stroke="#9e6a03" stroke-width="1"/>
+  <text x="419" y="254" text-anchor="middle" fill="#d29922" font-family="monospace" font-size="9">Python</text>
+
+  <!-- Panel 6: Activity -->
+  <rect x="520" y="160" width="304" height="108" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <text x="532" y="180" fill="#8b949e" font-family="monospace" font-size="10">LATEST ACTIVITY</text>
+
+  <!-- Activity log entries -->
+  <text x="532" y="198" fill="#3fb950" font-family="monospace" font-size="10">▸ deployed register-app to EKS</text>
+  <text x="776" y="198" fill="#484f58" font-family="monospace" font-size="9">2m</text>
+
+  <text x="532" y="216" fill="#58a6ff" font-family="monospace" font-size="10">▸ merged PR #42 gitops-manifests</text>
+  <text x="776" y="216" fill="#484f58" font-family="monospace" font-size="9">1h</text>
+
+  <text x="532" y="234" fill="#d29922" font-family="monospace" font-size="10">▸ scaled pods 3→5 prod-eks-01</text>
+  <text x="776" y="234" fill="#484f58" font-family="monospace" font-size="9">3h</text>
+
+  <text x="532" y="252" fill="#3fb950" font-family="monospace" font-size="10">▸ pipeline green ✓ 12/12 stages</text>
+  <text x="776" y="252" fill="#484f58" font-family="monospace" font-size="9">5h</text>
+
+  <!-- Scanning line effect -->
+  <rect x="0" y="0" width="840" height="2" rx="1" fill="#58a6ff" opacity="0.3">
+    <animate attributeName="y" values="0;280;0" dur="8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.3;0" dur="8s" repeatCount="indefinite"/>
+  </rect>
+</svg>
