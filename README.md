@@ -5,13 +5,13 @@
 
 <br>
 
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=70&lines=I+build+infrastructure+that+heals+itself;If+it's+not+in+Git%2C+it+doesn't+exist" alt="Typing SVG" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&repeat=true&width=620&height=30&lines=I+build+infrastructure+that+heals+itself;If+it's+not+in+Git%2C+it+doesn't+exist;kubectl+get+pods+--all-namespaces;Automate+everything+you+do+twice;terraform+plan+%26%26+terraform+apply;Uptime+is+a+practice%2C+not+a+promise;docker+build+.+%26%26+docker+push;Monitor+first%2C+deploy+second" alt="Typing SVG" /></a>
 
 <br>
 
 [![LinkedIn](https://img.shields.io/badge/-Saikiran%20Reddy-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/d-saikiran-reddy/)&nbsp;
 [![GitHub](https://img.shields.io/badge/-Saikiran5604-181717?style=flat&logo=github&logoColor=white)](https://github.com/Saikiran5604)&nbsp;
-![Views](https://visitcount.itsvg.in/api?id=Saikiran5604&label=Profile%20Views&color=1&icon=5&pretty=true)
+![Views](https://komarev.com/ghpvc/?username=Saikiran5604&color=1f6feb&style=flat&label=Profile+Views)
 
 </div>
 
@@ -196,30 +196,46 @@ hobbies:
 
 ---
 
-### Certifications & Badges
+### Troubleshooting Toolkit
 
-<div align="center">
+> Commands I reach for when things go sideways at 2 AM
 
-<img src="https://img.shields.io/badge/AWS-Solutions%20Architect-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white"/>
-<img src="https://img.shields.io/badge/Kubernetes-CKA%20Prep-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white"/>
-<img src="https://img.shields.io/badge/Terraform-Associate%20Prep-7B42BC?style=for-the-badge&logo=terraform&logoColor=white"/>
-<img src="https://img.shields.io/badge/Linux-LFCS%20Prep-FCC624?style=for-the-badge&logo=linux&logoColor=black"/>
+```bash
+# pod won't start? check the events
+kubectl describe pod <name> -n <ns> | tail -20
+kubectl logs <pod> -n <ns> --previous
 
-</div>
+# which node is under pressure?
+kubectl top nodes
+kubectl get events --sort-by='.lastTimestamp' -A | head -30
+
+# container keeps crashing? check resource limits
+kubectl get pod <pod> -o jsonpath='{.spec.containers[*].resources}'
+
+# DNS not resolving inside the cluster?
+kubectl run debug --rm -it --image=busybox -- nslookup <service>.<ns>.svc.cluster.local
+
+# terraform state acting up?
+terraform state list | grep <resource>
+terraform plan -target=<resource> -refresh-only
+
+# docker image layers eating disk?
+docker system df
+docker image prune -a --filter "until=72h"
+
+# find what's eating CPU on the host
+top -bn1 -o %CPU | head -15
+journalctl -u kubelet --since "30 min ago" --no-pager
+
+# quick healthcheck on all deployments
+kubectl get deploy -A | awk '$3 != $4 {print $0}'
+```
 
 ---
 
 <div align="center">
 
-<img src="https://github-profile-trophy.vercel.app/?username=Saikiran5604&theme=darkhub&no-frame=true&column=6&margin-w=10" width="70%"/>
-
-</div>
-
----
-
-<div align="center">
-
-### 📬 Let's Connect
+### Let's Connect
 
 **Building something interesting? Want to talk DevOps, cloud, or running?**
 
